@@ -7,6 +7,10 @@ public class Bullet {
     private static int WIDTH=5, HEIGHT=5;
     private TankFrame tf = null;
     private int x,y;
+
+    public static int bullet_WIDTH=ResourceMgr.bulletD.getWidth();
+    public static int bullet_HEIGHT=ResourceMgr.bulletD.getHeight();
+
     private Dir dir;
     private boolean live = true;
 
