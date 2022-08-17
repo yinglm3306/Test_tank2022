@@ -57,9 +57,11 @@ public class Tank {
 
     public void paint(Graphics g) {
         Color c= g.getColor(); //保存原来的颜色
-        g.setColor(Color.yellow); //把主战坦克设成黄色
+        /*g.setColor(Color.yellow); //把主战坦克设成黄色
         g.fillRect(x,y,50,50);//画出主战坦克
-        g.setColor(c); //设置回老的颜色
+        g.setColor(c); //设置回老的颜色*/
+
+        g.drawImage(ResourceMgr.tankL,x,y,null);
 
         move();
     }
