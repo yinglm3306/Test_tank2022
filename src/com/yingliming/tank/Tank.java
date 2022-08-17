@@ -1,5 +1,6 @@
 package com.yingliming.tank;
 
+import javax.swing.plaf.basic.BasicSplitPaneUI;
 import java.awt.*;
 
 /**
@@ -56,12 +57,25 @@ public class Tank {
     }
 
     public void paint(Graphics g) {
-        Color c= g.getColor(); //保存原来的颜色
-        /*g.setColor(Color.yellow); //把主战坦克设成黄色
-        g.fillRect(x,y,50,50);//画出主战坦克
-        g.setColor(c); //设置回老的颜色*/
-
-        g.drawImage(ResourceMgr.tankL,x,y,null);
+       // Color c= g.getColor(); //保存原来的颜色
+       // g.setColor(Color.yellow); //把主战坦克设成黄色
+       // g.fillRect(x,y,50,50);//画出主战坦克
+       // g.setColor(c); //设置回老的颜色
+        switch (dir)
+        {
+            case LEFT:
+                g.drawImage(ResourceMgr.tankL,x,y,null);
+                break;
+            case RIGHT:
+                g.drawImage(ResourceMgr.tankR,x,y,null);
+                break;
+            case UP:
+                g.drawImage(ResourceMgr.tankU,x,y,null);
+                break;
+            case DOWN:
+                g.drawImage(ResourceMgr.tankD,x,y,null);
+                break;
+        }
 
         move();
     }
