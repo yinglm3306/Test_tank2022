@@ -14,6 +14,7 @@ public class Tank {
     private Dir dir= Dir.DOWN;
     private final int SPEED=5;
     private boolean moving=false;
+    private boolean living= true;
 
     public static int tank_WIDTH=ResourceMgr.tankD.getWidth();
     public static int tank_HEIGHT=ResourceMgr.tankD.getHeight();
@@ -65,6 +66,7 @@ public class Tank {
        // g.setColor(Color.yellow); //把主战坦克设成黄色
        // g.fillRect(x,y,50,50);//画出主战坦克
        // g.setColor(c); //设置回老的颜色
+        if(!living) tf.tanks.remove(this);
         switch (dir)
         {
             case LEFT:
@@ -106,5 +108,9 @@ public class Tank {
         int bx=this.x+Tank.tank_WIDTH/2-Bullet.bullet_WIDTH/2;
         int by=this.y+Tank.tank_HEIGHT/2-Bullet.bullet_HEIGHT/2;
         tf.bullets.add(new Bullet(bx,by,dir,this.tf));
+    }
+
+    public void die() {
+        this.living= false;
     }
 }

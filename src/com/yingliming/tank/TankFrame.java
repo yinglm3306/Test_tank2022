@@ -61,6 +61,7 @@ public class TankFrame extends Frame {
         Color c= g.getColor();//保存现场
         g.setColor(Color.white);//设定白色
         g.drawString("子弹的数量为:" + bullets.size(),10,60); //画
+        g.drawString("敌人的数量为:" + tanks.size(),10,80); //画
         g.setColor(c); //恢复现场
 
         myTank.paint(g);
@@ -78,6 +79,13 @@ public class TankFrame extends Frame {
             if(!b.live) it.remove();
 
         }*/
+
+        //子弹和坦克做碰撞检测
+        for(int i=0;i<bullets.size(); i++){
+            for (int j =0;j<tanks.size();j++){
+                bullets.get(i).collideWith(tanks.get(j));
+            }
+        }
     }
 
     private class MyKeyAdapter extends KeyAdapter {
