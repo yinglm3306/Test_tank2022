@@ -2,6 +2,7 @@ package com.yingliming;
 
 
 import com.yingliming.tank.Dir;
+import com.yingliming.tank.Group;
 import com.yingliming.tank.Tank;
 import com.yingliming.tank.TankFrame;
 
@@ -16,7 +17,7 @@ public class T {
         TankFrame tf = new TankFrame();
         //初始化敌方坦克
         for(int i=0;i<5;i++){
-            tf.tanks.add(new Tank(50 + i*80,200, Dir.DOWN,tf ));
+            tf.tanks.add(new Tank(50 + i*80,200, Dir.DOWN, Group.BAD,tf ));
         }
         while (true){
             try {

@@ -2,6 +2,7 @@ package com.yingliming.tank;
 
 import javax.swing.plaf.basic.BasicSplitPaneUI;
 import java.awt.*;
+import java.util.Random;
 
 /**
  * @Auther: yingliming
@@ -15,17 +16,21 @@ public class Tank {
     private final int SPEED=5;
     private boolean moving=false;
     private boolean living= true;
+    private Group group= Group.BAD;
 
     public static int tank_WIDTH=ResourceMgr.tankD.getWidth();
     public static int tank_HEIGHT=ResourceMgr.tankD.getHeight();
 
+    private Random random=new Random();
+
 
     private TankFrame tf= null;
 
-    public Tank(int x, int y, Dir dir,TankFrame tf) {
+    public Tank(int x, int y, Dir dir,Group group,TankFrame tf) {
         this.x = x;
         this.y = y;
         this.dir = dir;
+        this.group=group;
         this.tf = tf;
     }
 
