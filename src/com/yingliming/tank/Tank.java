@@ -13,8 +13,8 @@ import java.util.Random;
 public class Tank {
     private int x=200,y=200;
     private Dir dir= Dir.DOWN;
-    private final int SPEED=5;
-    private boolean moving=false;
+    private final int SPEED=1;
+    private boolean moving=true;
     private boolean living= true;
     private Group group= Group.BAD;
 
@@ -32,6 +32,14 @@ public class Tank {
         this.dir = dir;
         this.group=group;
         this.tf = tf;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
     }
 
     public int getX() {
@@ -107,12 +115,13 @@ public class Tank {
             default:
                 break;
         }
+        if(random.nextInt(10)>5) this.fire();
     }
 
     public void fire() {
         int bx=this.x+Tank.tank_WIDTH/2-Bullet.bullet_WIDTH/2;
         int by=this.y+Tank.tank_HEIGHT/2-Bullet.bullet_HEIGHT/2;
-        tf.bullets.add(new Bullet(bx,by,dir,this.tf));
+        tf.bullets.add(new Bullet(bx,by,dir,this.group,this.tf));
     }
 
     public void die() {
